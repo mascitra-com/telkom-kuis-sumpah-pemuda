@@ -1,0 +1,324 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Olimpiade.id</title>
+	<link rel="icon" type="image/png" href="assets/images/ico.png">
+	<link rel="stylesheet" href="http://ujian.demo.olimpiade.id/assets_test/css/style.css">
+	<script src="http://ujian.demo.olimpiade.id/assets_test/js/jquery.js"></script>
+	
+	<script src="http://ujian.demo.olimpiade.id/assets_test/js/modernizr.js"></script>
+	<script src="http://ujian.demo.olimpiade.id/assets_test/js/notify.min.js"></script>
+	<meta property="og:image" content="assets/images/bg.png"/>
+
+	<meta name="csrf-token" content="K05rMyoMhgjBfCYV1yr9cFk4U84he0X8V2EmqDf6" />
+    <meta name="base-url" content="http://ujian.demo.olimpiade.id" />
+    <script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-75745916-3', 'auto');
+		ga('send', 'pageview');
+
+		var no_soal_all = ["1","2","3","4","5"];
+		var id_soal_all = [1,2,3,4,5];
+		var soal_id_answer_all = [];
+		var answer_all = [];
+	</script>
+</head>
+<body>
+	<div class="loading">
+		<div class="jar">
+			<div class="mouth"></div>
+			<div class="neck"></div>
+			<div class="base">
+				<div class="liquid"> </div>
+				<div class="wave"></div>
+				<div class="wave"></div>
+				<div class="bubble"></div>
+				<div class="bubble"></div>
+			</div>
+			<div class="bubble"></div>
+			<div class="bubble"></div>
+			<br>
+			<p>Memuat soal .....</p>
+		</div>
+	</div>
+
+	<div class="progress fixed-top">
+		<div id="progress" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+			<span class="sr-only">60% Complete</span>
+		</div>
+	</div>
+
+	<div class="container soal-box">
+		<div class="row">
+			<div class="col-md-9">
+				<form id="soalform" action="http://ujian.demo.olimpiade.id/ujian/save" method="POST" class="ac-custom ac-radio ac-fill" autocomplete="off">
+					<input type="hidden" name="_token" value="K05rMyoMhgjBfCYV1yr9cFk4U84he0X8V2EmqDf6">
+					<ul id="soal" class="soal">
+												<li class="animated bounceInDown">
+							<div class="body">
+								<p>Ridho harus mengkredit sebuah laptop dengan lima kali cicilan. Jika uang mukanya sebesar Rp. 1.500.000,- yang merupakan 30% dari harga laptop, berapa rupiahkah yang harus dibayarkan Ridho tiap kali cicilan ?</p>
+							</div>
+
+							<ul>
+																<li data-idsoal="1"><input id="n-1-o-A" name="n-1" type="radio" data-checked="false" data-soal="1" data-opsi="A"><label for="n-1-o-A">Rp. 750.000,-</label><svg id="svg-n-1-o-A" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"></svg></li>
+																<li data-idsoal="1"><input id="n-1-o-B" name="n-1" type="radio" data-checked="false" data-soal="1" data-opsi="B"><label for="n-1-o-B">Rp. 800.000,-</label><svg id="svg-n-1-o-B" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"></svg></li>
+																<li data-idsoal="1"><input id="n-1-o-C" name="n-1" type="radio" data-checked="false" data-soal="1" data-opsi="C"><label for="n-1-o-C">Rp. 850.000,-</label><svg id="svg-n-1-o-C" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"></svg></li>
+																<li data-idsoal="1"><input id="n-1-o-D" name="n-1" type="radio" data-checked="false" data-soal="1" data-opsi="D"><label for="n-1-o-D">Rp. 710.000,-</label><svg id="svg-n-1-o-D" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"></svg></li>
+																<li data-idsoal="1"><input id="n-1-o-E" name="n-1" type="radio" data-checked="false" data-soal="1" data-opsi="E"><label for="n-1-o-E">Rp. 700.000,-</label><svg id="svg-n-1-o-E" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"></svg></li>
+															</ul>
+						</li>
+												<li class="animated bounceInDown">
+							<div class="body">
+								<p>Didik adalah seorang tukang cat kerajinan papan catur. Dalam 5 menit dia mampu mengecat 25% dari papan berwarna hitam. Berapa lamakah dia mengecat sampai selesai keseluruhan papan catur ?  (Keterangan: sebuah papan catur terdiri dari 64 kotak)
+</p>
+							</div>
+
+							<ul>
+																<li data-idsoal="2"><input id="n-2-o-A" name="n-2" type="radio" data-checked="false" data-soal="2" data-opsi="A"><label for="n-2-o-A">20 menit</label><svg id="svg-n-2-o-A" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"></svg></li>
+																<li data-idsoal="2"><input id="n-2-o-B" name="n-2" type="radio" data-checked="false" data-soal="2" data-opsi="B"><label for="n-2-o-B">40 menit</label><svg id="svg-n-2-o-B" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"></svg></li>
+																<li data-idsoal="2"><input id="n-2-o-C" name="n-2" type="radio" data-checked="false" data-soal="2" data-opsi="C"><label for="n-2-o-C">50 menit</label><svg id="svg-n-2-o-C" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"></svg></li>
+																<li data-idsoal="2"><input id="n-2-o-D" name="n-2" type="radio" data-checked="false" data-soal="2" data-opsi="D"><label for="n-2-o-D">80 menit</label><svg id="svg-n-2-o-D" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"></svg></li>
+																<li data-idsoal="2"><input id="n-2-o-E" name="n-2" type="radio" data-checked="false" data-soal="2" data-opsi="E"><label for="n-2-o-E">30 menit</label><svg id="svg-n-2-o-E" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"></svg></li>
+															</ul>
+						</li>
+												<li class="animated bounceInDown">
+							<div class="body">
+								<p>Kakak beradik bernama Nia, Nanik dan Noeng. Nanik 9 tahun lebih tua dari Nia. Nur 2 tahun lebih tua dari Nanik. Dan bila usia mereka dijumlah akan mendapatkan angka 95. Berapakah usia Nia sekarang ?</p>
+							</div>
+
+							<ul>
+																<li data-idsoal="3"><input id="n-3-o-A" name="n-3" type="radio" data-checked="false" data-soal="3" data-opsi="A"><label for="n-3-o-A">26</label><svg id="svg-n-3-o-A" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"></svg></li>
+																<li data-idsoal="3"><input id="n-3-o-B" name="n-3" type="radio" data-checked="false" data-soal="3" data-opsi="B"><label for="n-3-o-B">35</label><svg id="svg-n-3-o-B" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"></svg></li>
+																<li data-idsoal="3"><input id="n-3-o-C" name="n-3" type="radio" data-checked="false" data-soal="3" data-opsi="C"><label for="n-3-o-C">15</label><svg id="svg-n-3-o-C" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"></svg></li>
+																<li data-idsoal="3"><input id="n-3-o-D" name="n-3" type="radio" data-checked="false" data-soal="3" data-opsi="D"><label for="n-3-o-D">24</label><svg id="svg-n-3-o-D" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"></svg></li>
+																<li data-idsoal="3"><input id="n-3-o-E" name="n-3" type="radio" data-checked="false" data-soal="3" data-opsi="E"><label for="n-3-o-E">25</label><svg id="svg-n-3-o-E" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"></svg></li>
+															</ul>
+						</li>
+												<li class="animated bounceInDown">
+							<div class="body">
+								G, H, I, M, N, J, K, L, M, N, …., ….
+							</div>
+
+							<ul>
+																<li data-idsoal="4"><input id="n-4-o-A" name="n-4" type="radio" data-checked="false" data-soal="4" data-opsi="A"><label for="n-4-o-A">N dan P</label><svg id="svg-n-4-o-A" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"></svg></li>
+																<li data-idsoal="4"><input id="n-4-o-B" name="n-4" type="radio" data-checked="false" data-soal="4" data-opsi="B"><label for="n-4-o-B">O dan P</label><svg id="svg-n-4-o-B" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"></svg></li>
+																<li data-idsoal="4"><input id="n-4-o-C" name="n-4" type="radio" data-checked="false" data-soal="4" data-opsi="C"><label for="n-4-o-C">P dan O</label><svg id="svg-n-4-o-C" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"></svg></li>
+																<li data-idsoal="4"><input id="n-4-o-D" name="n-4" type="radio" data-checked="false" data-soal="4" data-opsi="D"><label for="n-4-o-D">M dan N</label><svg id="svg-n-4-o-D" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"></svg></li>
+																<li data-idsoal="4"><input id="n-4-o-E" name="n-4" type="radio" data-checked="false" data-soal="4" data-opsi="E"><label for="n-4-o-E">N dan M</label><svg id="svg-n-4-o-E" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"></svg></li>
+															</ul>
+						</li>
+												<li class="animated bounceInDown">
+							<div class="body">
+								A, B, D, G, K, …., ….
+							</div>
+
+							<ul>
+																<li data-idsoal="5"><input id="n-5-o-A" name="n-5" type="radio" data-checked="false" data-soal="5" data-opsi="A"><label for="n-5-o-A">P dan V</label><svg id="svg-n-5-o-A" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"></svg></li>
+																<li data-idsoal="5"><input id="n-5-o-B" name="n-5" type="radio" data-checked="false" data-soal="5" data-opsi="B"><label for="n-5-o-B">P dan W</label><svg id="svg-n-5-o-B" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"></svg></li>
+																<li data-idsoal="5"><input id="n-5-o-C" name="n-5" type="radio" data-checked="false" data-soal="5" data-opsi="C"><label for="n-5-o-C">O dan U</label><svg id="svg-n-5-o-C" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"></svg></li>
+																<li data-idsoal="5"><input id="n-5-o-D" name="n-5" type="radio" data-checked="false" data-soal="5" data-opsi="D"><label for="n-5-o-D">O dan V</label><svg id="svg-n-5-o-D" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"></svg></li>
+																<li data-idsoal="5"><input id="n-5-o-E" name="n-5" type="radio" data-checked="false" data-soal="5" data-opsi="E"><label for="n-5-o-E">P dan U</label><svg id="svg-n-5-o-E" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"></svg></li>
+															</ul>
+						</li>
+											</ul>
+				</form>
+			</div>
+
+			<div class="col-md-3">
+				<header>
+					<h4>Sisa Waktu</h4>
+				</header>
+				<div id="countdown" align="center">
+					0:0
+				</div>
+
+				<button id="btnSubmit2" onclick="save_semua_jawaban()" type="button" class="btn btn-info btn-lg btn-block" style="margin-bottom: 20px;">
+					Save Jawaban Sementara
+				</button>
+				<button id="btnSubmit3" onclick="selesai()" type="button" class="btn btn-danger btn-lg btn-block" style="margin-bottom: 20px;">
+					Keluar Ujian
+				</button>
+
+				<header>
+					<h4>Daftar Soal</h4>
+				</header>
+				<div id="soal-nav">
+					
+				</div>
+
+				<div class="control">
+					<ul class="pager">
+						<li><a id="soalprev" href="#">Previous</a></li>
+						<li><a id="soalnext" href="#">Next</a></li>
+					</ul>
+				</div>
+				<br>
+				<!-- <button id="btnSubmit" type="button" class="btn btn-success btn-lg btn-block">
+					Simpan Jawaban Sementara
+				</button> -->
+				
+			</div>
+		</div>
+	</div>
+
+	<script src="http://ujian.demo.olimpiade.id/assets_test/dev/js/app.js"></script>
+	<script src="http://ujian.demo.olimpiade.id/assets_test//js/svg.js"></script>
+	<script>
+		var my_soal = [];
+		var my_answer = [];
+
+		function save_semua_jawaban(){
+			$('#btnSubmit2').html("loading ...").attr("disabled", true);
+			if (my_soal.length == 0) {
+				$.notify("Tidak ada jawaban yang disimpan", "info");
+				$('#btnSubmit2').html("SAVE JAWABAN SEMENTARA").attr("disabled", false);
+				return null;
+			}
+			saveJawaban2();
+			$('#btnSubmit2').html("SAVE JAWABAN SEMENTARA").attr("disabled", false);
+			return;
+		}
+
+		function selesai() {
+			if (confirm('Apakah anda yakin?')) {	
+				saveJawaban2();
+				window.location.href = $('meta[name="base-url"]').attr('content');
+			}
+			return ;
+		}
+
+		var start = false;
+		var data = [];
+		$(document).ready(function() {
+			$.notify("Selamat Mengerjakan :)", "success");
+			CountDownTimer('10/22/2017 08:00 pm ', 'countdown');
+			var jawaban = "";
+
+			
+			start = true;
+
+		});
+
+		$(document).on("click", "input[type='radio']", function(e) {
+			var soal_id = $(this).data("soal");
+			var opsi = $(this).data("opsi");
+
+			var index = my_soal.indexOf(soal_id);
+			if (index !== -1) {
+				if ($(this).data("checked") === true) {
+				    my_answer[index] = '-';
+					$(this).data("checked", false);
+					$(this).prop("checked", false);
+					$(this).parent("li").children("svg").children("path").remove();
+				} else {
+				    my_answer[index] = opsi;
+					$(this).data("checked", true);
+				}
+			} else {
+				my_soal.push(soal_id);
+				my_answer.push(opsi);
+
+				$(this).data("checked", true);
+			}
+
+ 		})
+
+ 		function saveJawaban2(){
+ 			$.ajaxSetup({
+		        headers: {
+		        	'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		    	}
+		    });
+
+	        var  data = new FormData();
+	        data.append("my_soal", JSON.stringify(my_soal));
+	        data.append("my_answer", JSON.stringify(my_answer));
+	        var url = '/api/ajaxsoal2';
+	        $.ajax({
+	            data: data,
+	            type: "POST",
+	            url: url,
+		        cache: false,
+		        contentType: false,
+		        processData: false,
+	            success: function(data) {
+	            	if (data == 'redirect') { window.location.href = $('meta[name="base-url"]').attr('content'); }
+
+	            	my_soal = [];
+	            	my_answer = [];
+	            	if (data == '2') { $.notify('Jawaban berhasil diganti', "success"); }
+	            	if (data == '1') { $.notify('Jawaban berhasil disimpan', "success"); }
+	            	if (data == 'error') { $.notify('Maaf terjadi kesalahan. Mohon refresh browser anda', "danger"); }
+	            }, error: function() {
+				   //Error Message
+				   $.notify('terjadi kesalahan sistem. Mohon refresh browser anda', "error");
+				} 
+	        });
+ 		}
+
+		function saveJawaban(soal_id, opsi) {
+			$.ajaxSetup({
+		        headers: {
+		        	'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		    	}
+		    });
+
+	        var  data = new FormData();
+	        data.append("soal_id", soal_id);
+	        data.append("answer", opsi);
+	        var url = '/api/ajaxsoal';
+	        $.ajax({
+	            data: data,
+	            type: "POST",
+	            url: url,
+		        cache: false,
+		        contentType: false,
+		        processData: false,
+	            success: function(data) {
+	            	if (data == '2') { $.notify('Jawaban berhasil diganti', "success"); }
+	            	if (data == '1') { $.notify('Jawaban berhasil disimpan', "success"); }
+	            	if (data == 'error') { $.notify('Maaf terjadi kesalahan. Mohon refresh browser anda', "danger"); }
+	            }, error: function() {
+				   //Error Message
+				   $.notify('terjadi kesalahan sistem. Mohon refresh browser anda', "error");
+				} 
+	        });
+		}
+
+		function saveJawabanKosong(soal_id, opsi) {
+			$.ajaxSetup({
+		        headers: {
+		        	'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		    	}
+		    });
+
+	        var  data = new FormData();
+	        data.append("soal_id", soal_id);
+	        data.append("answer", '');
+	        var url = '/api/ajaxsoal';
+	        $.ajax({
+	            data: data,
+	            type: "POST",
+	            url: url,
+		        cache: false,
+		        contentType: false,
+		        processData: false,
+	            success: function(data) {
+	            	if (data == '2') { $.notify('Jawaban berhasil diganti', "success"); }
+	            	if (data == '1') { $.notify('Jawaban berhasil disimpan', "success"); }
+	            	if (data == 'error') { $.notify('Maaf terjadi kesalahan. Mohon refresh browser anda', "danger"); }
+	            }, error: function() {
+				   //Error Message
+				   $.notify('terjadi kesalahan sistem. Mohon refresh browser anda', "error");
+				} 
+	        });
+		}
+	</script>
+</body>
+</html>
