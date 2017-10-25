@@ -20,6 +20,12 @@ if(!empty($_POST)){
         if($row > 0){
             $_SESSION['isLoggedIn']=1;
             $_SESSION['username']=$username;
+
+            $sql = "select * from user where username='".$username."'";
+            $query = mysql_query($sql) or die (mysql_error());
+            while($row = mysql_fetch_assoc($query)) {
+                $_SESSION['userdata'] = $row;
+            }
             header('Location: index.php');
            
         }else{
@@ -133,7 +139,7 @@ if(!empty($_POST)){
         <span class="text red">Registrasi Peserta Baru</span>
     </div>
     <div class="content">
-        <form action="tambahpeserta.php" class="ui form" id="registration_form">
+        <form action="tambahpeserta.php" class="ui form" id="registration_form" method="post">
             <div class="field">
                 <label>Name</label>
                 <input type="text" name="nama" placeholder="Nama Depan" required>
@@ -204,7 +210,7 @@ if(!empty($_POST)){
             <div class="field">
                 <label>Kelas</label>
                 <div class="ui selection dropdown">
-                    <input type="hidden" name="jurusan">
+                    <input type="hidden" name="kelas">
                     <i class="dropdown icon"></i>
                     <div class="default text"></div>
                     <div class="menu">
@@ -239,22 +245,16 @@ if(!empty($_POST)){
     </div>
     <div class="actions">
         <div class="ui button">Cancel</div>
-        <button onclick="register()" class="ui button">Simpan</button>
+        <button type="submit" form="registration_form" class="ui button">Simpan</button>
     </div>
 </div>
 <script>
 
     $( document ).ready(function() {
         $('.dropdown').dropdown();
-        $('#registration_form').submit(function (e) {
-            e.preventDefault();
-        });
         $('.ui.checkbox').checkbox();
         $('.ui.tiny.modal').modal();
     });
-    function register() {
-        $("#registration_form").submit();
-    }
     function show_register() {
         $('.ui.tiny.modal')
             .modal({

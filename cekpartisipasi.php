@@ -4,7 +4,7 @@ include 'database.php';
 
 $username = $_SESSION['username'];
 
-$sql = "select * from user where done like '0' and username='".$username."' ";
+$sql = "select * from user where done < 1 and username='".$username."' ";
 
 $hasil=mysql_query($sql);
 

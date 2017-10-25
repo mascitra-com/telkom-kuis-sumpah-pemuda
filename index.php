@@ -11,7 +11,13 @@
         session_destroy();
         header('Location: login.php');
     }
-
+    include 'database.php';
+    $sql = "select * from nilai where username='".$username."'";
+    if($query = mysql_query($sql)) {
+        while ($row = mysql_fetch_assoc($query)) {
+            $_SESSION['score'] = $row;
+        }
+    }
     ?>
 
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
@@ -26,34 +32,48 @@
 
     <div class="row">
         <div align="right" style="margin: .5em 1em 0 0">
-            <h3>Semangat pagi, <span class="text red"><?php echo ucwords($username); ?></span>!</h3>
+            <h3>Semangat pagi, <span class="text red"><?php echo ucwords($_SESSION['userdata']['nama']); ?></span>!</h3>
             <a href="logout.php" class="ui tiny button red">Logout</a>
         </div>
     </div>
 
     <img src="big-logo.jpg" width="250px">
     <div align="center">
-    <div class="ui message" style="max-width: 400px">
-        <div class="header">
-            Catatan
+        <?php if(!isset($_SESSION['score'])) { ?>
+            <div class="ui message" style="max-width: 400px">
+                <div class="header">
+                    Catatan
+                </div>
+                <ul class="list">
+                    <li>Durasi Yang Diberikan Sebanyak 30 Menit</li>
+                    <li>Siapkan Kertas Untuk Coretan</li>
+                    <li>Soal Yang Diberikan : </li>
+                    <ul>
+                        <li>5 Soal Bahasa Indonesia</li>
+                        <li>5 Soal Bahasa Inggris</li>
+                        <li>5 Soal Matematika</li>
+                        <?php if($_SESSION['userdata']['jurusan'] == "IPA") { ?>
+                            <li>5 Soal Fisika</li>
+                            <li>5 Soal Kimia</li>
+                            <li>5 Soal Biologi</li>
+                        <?php } else { ?>
+                            <li>5 Soal Ekonomi</li>
+                            <li>5 Soal Geografi</li>
+                            <li>5 Soal Sejarah</li>
+                        <?php } ?>
+                    </ul>
+                </ul>
+            </div>
+        <?php } else { ?>
+        <div class="ui message" style="max-width: 400px">
+            <div class="header">
+                Nilai Anda
+            </div>
+            <div class="content">
+                <h2><?=number_format($_SESSION['score']['nilai'], 2, ',', '.')?></h2>
+            </div>
         </div>
-        <ul class="list">
-            <li>Durasi Yang Diberikan Sebanyak 30 Menit</li>
-            <li>Siapkan Kertas Untuk Coretan</li>
-            <li>Soal Yang Diberikan : </li>
-            <ul>
-                <li>5 Soal Bahasa Indonesia</li>
-                <li>5 Soal Bahasa Inggris</li>
-                <li>5 Soal Matematika</li>
-                <li>5 Soal Fisika</li>
-                <li>5 Soal Kimia</li>
-                <li>5 Soal Biologi</li>
-<!--                <li>5 Soal Ekonomi</li>-->
-<!--                <li>5 Soal Geografi</li>-->
-<!--                <li>5 Soal Sejarah</li>-->
-            </ul>
-        </ul>
-    </div>
+        <?php } ?>
     </div>
     <div style="margin-top: 1em">
     <a href="cekpartisipasi.php" class="ui button red">Mulai Quiz</a>
