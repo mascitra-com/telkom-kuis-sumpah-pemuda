@@ -30,22 +30,20 @@
 
 
 
-<?php 
+<?php
 include 'database.php';
 session_start();
 $username = $_SESSION['username'];
 
-
-
 #nyari jatah soal
-$query="SELECT kode FROM jatahsoal where username='".$username."' ";
-$jatahsoal=mysql_query($query);
-$_SESSION['jatahsoal']=$jatahsoal;
-$baris =1;
-if($_SESSION['userdata']['jurusan'] == "IPA"){
-    $mapel = array('Bahasa Indonesia', 'Matematika', 'Bahasa Inggris', 'Fisika', 'Kimia', 'Biologi');
+$query = "SELECT kode FROM jatahsoal where username='" . $username . "' ";
+$jatahsoal = mysql_query($query);
+$_SESSION['jatahsoal'] = $jatahsoal;
+$baris = 1;
+if ($_SESSION['userdata']['jurusan'] == "IPA") {
+	$mapel = array('Bahasa Indonesia', 'Matematika', 'Bahasa Inggris', 'Fisika', 'Kimia', 'Biologi');
 } else {
-    $mapel = array('Bahasa Indonesia', 'Matematika', 'Bahasa Inggris', 'Sejarah', 'Geografi', 'Ekonomi');
+	$mapel = array('Bahasa Indonesia', 'Matematika', 'Bahasa Inggris', 'Sejarah', 'Geografi', 'Ekonomi');
 }
 $segment = array(1, 6, 11, 16, 21, 26);
 $segment2 = array(5, 10, 15, 20, 25, 30);
@@ -60,68 +58,72 @@ $mapelKe = 0;
             <h1 align="center">Selamat mengerjakan, <?php echo ucwords($_SESSION['userdata']['nama']) ?>!!!</h1>
             <br>
             <div class="ui top attached tabular menu">
-                <?php foreach ($mapel as $key => $pelajaran) { ?>
+                <?php foreach ($mapel as $key => $pelajaran) {?>
                     <a class="item <?=$key ? '' : 'active'?>" data-tab="<?=$pelajaran?>"><?=ucwords($pelajaran)?></a>
-                <?php } ?>
+                <?php }?>
             </div>
             <?php
-		while($row = mysql_fetch_array($jatahsoal))
-		{
+while ($row = mysql_fetch_array($jatahsoal)) {
 
-            if(in_array($baris, $segment)) {
-                $active = $baris == 1 ? 'active' : '';
-                echo "<div class='ui bottom attached tab segment $active' data-tab='".$mapel[$mapelKe++]."'>";
-            }
-			echo '</br>';
-			echo '</br>';
+	if (in_array($baris, $segment)) {
+		$active = $baris == 1 ? 'active' : '';
+		echo "<div class='ui bottom attached tab segment $active' data-tab='" . $mapel[$mapelKe++] . "'>";
+	}
+	echo '</br>';
+	echo '</br>';
 
-
-			$kodesoal=$row['kode'];
-			$querysoal="SELECT * FROM soal where kode='".$kodesoal."' order by mapel";
-			$soal=mysql_query($querysoal);
-			while($rowsoal=mysql_fetch_array($soal))
-			{
-				echo '
-                <div class="row grouped fields">
-                    <h4>'.$rowsoal['soal'].'</h4>
-                    <div class="field">
-                        <div class="ui radio checkbox">
-                            <input type="radio" name="question-'.$baris.'-answers-'.$username.'"  tabindex="0" class="hidden" value="A" />
-                            <label>A) '.$rowsoal['jawabana'].' </label>
-                        </div>
+	$kodesoal = $row['kode'];
+	$querysoal = "SELECT * FROM soal where kode='" . $kodesoal . "' order by mapel";
+	$soal = mysql_query($querysoal);
+	while ($rowsoal = mysql_fetch_array($soal)) {
+		echo '
+                <div class="row ui grid">
+                    <div class="one wide column">
+                    <span class="ui red circular label">' . $baris . '.</span>
                     </div>
-                    <div class="field">
-                        <div class="ui radio checkbox">
-                            <input type="radio" name="question-'.$baris.'-answers-'.$username.'" tabindex="0" class="hidden" value="B" />
-                            <label>B) '.$rowsoal['jawabanb'].'</label>
+                    <div class="fifteen wide column grouped fields">
+                        <h4>' . $rowsoal['soal'] . '</h4>
+                        <div class="field">
+                            <div class="ui radio checkbox">
+                                <input type="radio" name="question-' . $baris . '-answers-' . $username . '"  tabindex="0" class="hidden" value="A" />
+                                <label>A) ' . $rowsoal['jawabana'] . ' </label>
+                            </div>
                         </div>
-                    </div>
-                    <div class="field">
-                        <div class="ui radio checkbox">
-                            <input type="radio" name="question-'.$baris.'-answers-'.$username.'" tabindex="0" class="hidden" value="C" />
-                            <label>C) '.$rowsoal['jawabanc'].'</label>
+                        <div class="field">
+                            <div class="ui radio checkbox">
+                                <input type="radio" name="question-' . $baris . '-answers-' . $username . '" tabindex="0" class="hidden" value="B" />
+                                <label>B) ' . $rowsoal['jawabanb'] . '</label>
+                            </div>
                         </div>
-                    </div>
-                    <div class="field">
-                        <div class="ui radio checkbox">
-                            <input type="radio" name="question-'.$baris.'-answers-'.$username.'" tabindex="0" class="hidden" value="D" />
-                            <label>D) '.$rowsoal['jawaband'].'</label>
+                        <div class="field">
+                            <div class="ui radio checkbox">
+                                <input type="radio" name="question-' . $baris . '-answers-' . $username . '" tabindex="0" class="hidden" value="C" />
+                                <label>C) ' . $rowsoal['jawabanc'] . '</label>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="ui radio checkbox">
+                                <input type="radio" name="question-' . $baris . '-answers-' . $username . '" tabindex="0" class="hidden" value="D" />
+                                <label>D) ' . $rowsoal['jawaband'] . '</label>
+                            </div>
                         </div>
                     </div>
                 </div>
 				';
 
-			};
-            if(in_array($baris, $segment2)) {
-                echo '</div>';
-            }
+	}
+	;
+	if (in_array($baris, $segment2)) {
+		echo '</div>';
+	}
 
-			$baris++;
-		};
+	$baris++;
+}
+;
 
-		?>
+?>
 
-		
+
 		<script type="text/javascript">
 
 			function finishpage()
@@ -134,7 +136,7 @@ $mapelKe = 0;
 			}
 		</script>
 
-		
+
 
 		<br>
 		<input class="ui red button" type="submit" value="Submit Quiz" />

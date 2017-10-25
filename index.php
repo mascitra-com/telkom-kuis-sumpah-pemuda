@@ -1,24 +1,33 @@
 <!DOCTYPE html>
 <html align="center">
+<style>
+    body {
+        background: url(background.jpg) no-repeat center center fixed !important;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+</style>
 <head>
 
     <?php
-    session_start();
-    $username = $_SESSION['username'];
-    $isLoggedIn = $_SESSION['isLoggedIn'];
+session_start();
+$username = $_SESSION['username'];
+$isLoggedIn = $_SESSION['isLoggedIn'];
 
-    if ($isLoggedIn != '1') {
-        session_destroy();
-        header('Location: login.php');
-    }
-    include 'database.php';
-    $sql = "select * from nilai where username='".$username."'";
-    if($query = mysql_query($sql)) {
-        while ($row = mysql_fetch_assoc($query)) {
-            $_SESSION['score'] = $row;
-        }
-    }
-    ?>
+if ($isLoggedIn != '1') {
+	session_destroy();
+	header('Location: login.php');
+}
+include 'database.php';
+$sql = "select * from nilai where username='" . $username . "'";
+if ($query = mysql_query($sql)) {
+	while ($row = mysql_fetch_assoc($query)) {
+		$_SESSION['score'] = $row;
+	}
+}
+?>
 
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
     <link rel="stylesheet" type="text/css" href="semantic/semantic.min.css">
@@ -29,17 +38,18 @@
             crossorigin="anonymous"></script>
     <script src="semantic/semantic.min.js"></script>
     <title>Telkom Quiz</title>
-
+</head>
+<body>
     <div class="row">
         <div align="right" style="margin: .5em 1em 0 0">
-            <h3>Semangat pagi, <span class="text red"><?php echo ucwords($_SESSION['userdata']['nama']); ?></span>!</h3>
+            <h3><span class="text white">Semangat pagi,</span> <span class="text red"><?php echo ucwords($_SESSION['userdata']['nama']); ?></span>!</h3>
             <a href="logout.php" class="ui tiny button red">Logout</a>
         </div>
     </div>
 
     <img src="big-logo.jpg" width="250px">
-    <div align="center">
-        <?php if(!isset($_SESSION['score'])) { ?>
+    <div align="center" style="margin-top: 2em">
+        <?php if (!isset($_SESSION['score'])) {?>
             <div class="ui message" style="max-width: 400px">
                 <div class="header">
                     Catatan
@@ -52,36 +62,32 @@
                         <li>5 Soal Bahasa Indonesia</li>
                         <li>5 Soal Bahasa Inggris</li>
                         <li>5 Soal Matematika</li>
-                        <?php if($_SESSION['userdata']['jurusan'] == "IPA") { ?>
+                        <?php if ($_SESSION['userdata']['jurusan'] == "IPA") {?>
                             <li>5 Soal Fisika</li>
                             <li>5 Soal Kimia</li>
                             <li>5 Soal Biologi</li>
-                        <?php } else { ?>
+                        <?php } else {?>
                             <li>5 Soal Ekonomi</li>
                             <li>5 Soal Geografi</li>
                             <li>5 Soal Sejarah</li>
-                        <?php } ?>
+                        <?php }?>
                     </ul>
                 </ul>
             </div>
-        <?php } else { ?>
+        <?php } else {?>
         <div class="ui message" style="max-width: 400px">
             <div class="header">
-                Nilai Anda
+                Terima Kasih
             </div>
             <div class="content">
-                <h2><?=number_format($_SESSION['score']['nilai'], 2, ',', '.')?></h2>
+                Jawaban Anda Sedang Kami Proses
             </div>
         </div>
-        <?php } ?>
+        <?php }?>
     </div>
     <div style="margin-top: 1em">
     <a href="cekpartisipasi.php" class="ui button red">Mulai Quiz</a>
     </div>
-
-</head>
-<body>
-
 </body>
 </html>
 

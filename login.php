@@ -2,36 +2,36 @@
 session_start();
 include 'database.php';
 
-if(!empty($_POST)){
+if (!empty($_POST)) {
 
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+	$username = $_POST['username'];
+	$password = $_POST['password'];
 
-    $sql = "select * from user where username='".$username."' and password='".$password."'";
-    #$sql = "select * from user where username='www' and password='www'";
-    #echo $sql."<br />";
-    $query = mysql_query($sql) or die (mysql_error());
+	$sql = "select * from user where username='" . $username . "' and password='" . $password . "'";
+	#$sql = "select * from user where username='www' and password='www'";
+	#echo $sql."<br />";
+	$query = mysql_query($sql) or die(mysql_error());
 
-    // pengecekan query valid atau tidak
-    if($query){
-        $row = mysql_num_rows($query);
+	// pengecekan query valid atau tidak
+	if ($query) {
+		$row = mysql_num_rows($query);
 
-        // jika $row > 0 atau username dan password ditemukan
-        if($row > 0){
-            $_SESSION['isLoggedIn']=1;
-            $_SESSION['username']=$username;
+		// jika $row > 0 atau username dan password ditemukan
+		if ($row > 0) {
+			$_SESSION['isLoggedIn'] = 1;
+			$_SESSION['username'] = $username;
 
-            $sql = "select * from user where username='".$username."'";
-            $query = mysql_query($sql) or die (mysql_error());
-            while($row = mysql_fetch_assoc($query)) {
-                $_SESSION['userdata'] = $row;
-            }
-            header('Location: index.php');
-           
-        }else{
-            echo '<script>alert("Username atau password belum terdaftar.");</script>';;
-        }
-    }
+			$sql = "select * from user where username='" . $username . "'";
+			$query = mysql_query($sql) or die(mysql_error());
+			while ($row = mysql_fetch_assoc($query)) {
+				$_SESSION['userdata'] = $row;
+			}
+			header('Location: index.php');
+
+		} else {
+			echo '<script>alert("Username atau password belum terdaftar.");</script>';
+		}
+	}
 }
 ?>
 
@@ -61,6 +61,13 @@ if(!empty($_POST)){
         }
         .column {
             max-width: 450px;
+        }
+        body {
+            background: url(background.jpg) no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
         }
     </style>
     <script>
@@ -171,15 +178,14 @@ if(!empty($_POST)){
                     <div class="default text"></div>
                     <div class="menu">
                         <?php
-                        include 'database.php';
+include 'database.php';
 
-                        $query = "SELECT * FROM sekolah";
-                        $hasil = mysql_query($query);
-                        while ($row = mysql_fetch_array($hasil))
-                        {
-                            echo '<div class="item" data-value="'.$row['namasekolah'].'">'.$row['namasekolah'].'</div>';
-                        }
-                        ?>
+$query = "SELECT * FROM sekolah";
+$hasil = mysql_query($query);
+while ($row = mysql_fetch_array($hasil)) {
+	echo '<div class="item" data-value="' . $row['namasekolah'] . '">' . $row['namasekolah'] . '</div>';
+}
+?>
                     </div>
                 </div>
             </div>
@@ -195,15 +201,14 @@ if(!empty($_POST)){
                     <div class="default text"></div>
                     <div class="menu">
                         <?php
-                        include 'database.php';
+include 'database.php';
 
-                        $query = "SELECT * FROM jurusan";
-                        $hasil = mysql_query($query);
-                        while ($row = mysql_fetch_array($hasil))
-                        {
-                            echo '<div class="item" data-value="'.$row['jurusan'].'">'.$row['jurusan'].'</div>';
-                        }
-                        ?>
+$query = "SELECT * FROM jurusan";
+$hasil = mysql_query($query);
+while ($row = mysql_fetch_array($hasil)) {
+	echo '<div class="item" data-value="' . $row['jurusan'] . '">' . $row['jurusan'] . '</div>';
+}
+?>
                     </div>
                 </div>
             </div>
@@ -215,15 +220,14 @@ if(!empty($_POST)){
                     <div class="default text"></div>
                     <div class="menu">
                         <?php
-                        include 'database.php';
+include 'database.php';
 
-                        $query = "SELECT * FROM kelas";
-                        $hasil = mysql_query($query);
-                        while ($row = mysql_fetch_array($hasil))
-                        {
-                            echo '<div class="item" data-value="'.$row['kelas'].'">'.$row['kelas'].'</div>';
-                        }
-                        ?>
+$query = "SELECT * FROM kelas";
+$hasil = mysql_query($query);
+while ($row = mysql_fetch_array($hasil)) {
+	echo '<div class="item" data-value="' . $row['kelas'] . '">' . $row['kelas'] . '</div>';
+}
+?>
                     </div>
                 </div>
             </div>
