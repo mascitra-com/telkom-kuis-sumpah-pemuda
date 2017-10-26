@@ -2,6 +2,10 @@
 session_start();
 include 'database.php';
 
+$isLoggedIn = $_SESSION['isLoggedIn'];
+if ($isLoggedIn == '1') {
+    header('Location: index.php');
+}
 if (!empty($_POST)) {
 
 	$username = $_POST['username'];
