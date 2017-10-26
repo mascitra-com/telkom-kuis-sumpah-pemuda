@@ -2,8 +2,7 @@
 session_start();
 include 'database.php';
 
-$isLoggedIn = $_SESSION['isLoggedIn'];
-if ($isLoggedIn == '1') {
+if(isset($_SESSION['isLoggedIn'])){
     header('Location: index.php');
 }
 if (!empty($_POST)) {
