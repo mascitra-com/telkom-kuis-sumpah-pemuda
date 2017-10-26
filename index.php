@@ -107,17 +107,19 @@ if ($query = mysql_query($sql)) {
             <?php } else {?>
             <div class="ui message" style="max-width: 400px">
                 <div class="header">
-                    Terima Kasih
+                    Nilai Anda
                 </div>
                 <div class="content">
-                    Jawaban Anda Sedang Kami Proses
+                    <h1><?=number_format($_SESSION['score']['nilai'], 2, ',', '.')?></h1>
                 </div>
             </div>
             <?php }?>
         </div>
+        <?php if (!isset($_SESSION['score'])) {?>
         <div style="margin-top: 1em">
             <a href="cekpartisipasi.php" class="ui button red">Mulai Quiz</a>
         </div>
+        <?php } ?>
         <script type="text/javascript">
         $( document ).ready(function() {
             $('.ui.sticky')
