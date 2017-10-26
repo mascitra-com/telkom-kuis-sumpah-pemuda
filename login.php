@@ -63,7 +63,8 @@ if (!empty($_POST)) {
             max-width: 450px;
         }
         body {
-            background: url(background.jpg) no-repeat center center fixed;
+            background: url(login-bg.jpg) no-repeat center center fixed;
+		  	background-color: #D95C5C;
             -webkit-background-size: cover;
             -moz-background-size: cover;
             -o-background-size: cover;
@@ -108,10 +109,10 @@ if (!empty($_POST)) {
 <body>
 <div class="ui middle aligned center aligned grid">
     <div class="column">
-        <img src="logotelkom.jpeg" class="image">
+        <img src="logotelkom.jpeg" class="image" style="margin-top: 0em">
         <h2 class="ui teal image header">
             <div class="content">
-                <span class="text red">Login Kuis Sumpah Pemuda</span>
+                <span class="text white">Login Kuis Sumpah Pemuda</span>
             </div>
         </h2>
         <form class="ui large form" action="" method="post">
